@@ -84,7 +84,7 @@ class gerador_CPF():
             case "1":
                 self.inicio()
             case "2":
-                from interface import gui
+                from home import gui
                 sy("cls")
                 interface = gui()
                 interface.inicio()
@@ -96,4 +96,6 @@ class gerador_CPF():
                 sy("cls")
                 sl(0.5)
                 self.inicio_caso_erro()
+                
+    
         
