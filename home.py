@@ -42,7 +42,7 @@ class home():
                 gf.delay(1.5, 1)
                 exit()
             case _:
-                gf.Opcao_Invalida()
+                gf.Opcao_Invalida(self)
                 self.inicio(False)
     
 if __name__ == "__main__":

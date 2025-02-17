@@ -9,9 +9,9 @@ class Validar_Numero():
         self.Processar_Escolha(self.Painel_Escolha())
     
     def Painel_Inicializacao(self):
-        gf.Opcao_Invalida(0, 0.5)
+        gf.delay(0, 0.5)
         print("Carregando validações...")
-        gf.Opcao_Invalida(1, 0.5)
+        gf.delay(1, 0.5)
     
     def Painel_Escolha(self):
         print("- - - - - GERADOR DE NÚMEROS - - - - -\n\n")
@@ -22,9 +22,9 @@ class Validar_Numero():
         match opcao:
             case "2":
                 from home import home 
-                gf.Opcao_Invalida(0, 0.5)
+                gf.delay(0, 0.5)
                 hm = home()
                 hm.inicio(False)
             case _:
-                gf.Opcao_Invalida()
+                gf.Opcao_Invalida(self)
                 self.inicio(False)

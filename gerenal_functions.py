@@ -7,6 +7,6 @@ def delay(delay_inicio, delay_fim):
     sl(delay_fim)
 
 def Opcao_Invalida(self):
-    self.delay(0, 0.5)
+    delay(0, 0.5)
     print("A opção está invalida. Selecione suas opções novamente")
-    self.delay(1.5, 0.5)
+    delay(1.5, 0.5)
