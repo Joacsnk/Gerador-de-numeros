@@ -1,6 +1,6 @@
 from os import system as sy
 from time import sleep as sl
-from gerenal_functions import delay as dl
+import gerenal_functions as gf
 class home():
     
     def __init__(self):
@@ -13,11 +13,11 @@ class home():
     
     def Painel_Inicializacao(self):
         print("Seja bem vindo ao gerador de números")
-        dl(2, 0.5)
+        gf.delay(2, 0.5)
         print("Aqui você pode gerar CPFs, RGs e mais...")
-        dl(2, 0.5)
+        gf.delay(2, 0.5)
         print("Abrindo GUI...")
-        dl(1, 0.5)
+        gf.delay(1, 0.5)
     
     def Painel_Escolha(self):
         print("- - - - - GERADOR DE NÚMEROS - - - - -\n\n")
@@ -30,17 +30,19 @@ class home():
                 from gerar_numero import Gerar_Numero
                 Gerar_Numero = Gerar_Numero()
                 Gerar_Numero.inicio(True)
+            case "2":
+                from validar_numero import Validar_Numero
+                Validar_Numero = Validar_Numero()
+                Validar_Numero.inicio(True)
             case "3":
-                dl(0, 0.5)
+                gf.delay(0, 0.5)
                 print("Obrigado por visualizar meu projeto ;)")
-                dl(2, 1)
+                gf.delay(2, 1)
                 print("Encerando o programa...")
-                dl(1.5, 1)
+                gf.delay(1.5, 1)
                 exit()
             case _:
-                dl(0, 0.5)
-                print("A opção está invalida. Selecione suas opções novamente")
-                dl(1.5, 0.5)
+                gf.Opcao_Invalida()
                 self.inicio(False)
     
 if __name__ == "__main__":
