@@ -1,32 +1,29 @@
-from os import system as sy
-from time import sleep as sl
-from gerenal_functions import delay as dl
+#sessão para geradores de números
+import general_functions as gf #defs gerais
 class Gerar_Numero():
 
-    def inicio(self, exibir_inicio):
+    def inicio(self, exibir_inicio): #exibe painel de inicio ou não
         if exibir_inicio:
             self.Painel_Inicializacao()
         self.Processar_Escolha(self.Painel_Escolha())
     
-    def Painel_Inicializacao(self):
-        dl(0, 0.5)
+    def Painel_Inicializacao(self): #exibe painel
+        gf.delay(0, 0.5)
         print("Abrindo geradores...")
-        dl(1, 0.5)
+        gf.delay(1, 0.5)
     
-    def Painel_Escolha(self):
+    def Painel_Escolha(self): #exibe interface de escolha
         print("- - - - - GERADOR DE NÚMEROS - - - - -\n\n")
         print("GERAR CPF [1]\nVOLTAR [2]\n\n")
         return str(input("Escolha uma opção: "))
     
-    def Processar_Escolha(self, opcao):
+    def Processar_Escolha(self, opcao): #processa sua escolha
         match opcao:
-            case "2":
+            case "2": #retorna para o inicio principal
                 from home import home 
-                dl(0, 0.5)
+                gf.delay(0, 0.5)
                 hm = home()
                 hm.inicio(False)
-            case _:
-                dl(0, 0.5)
-                print("A opção está invalida. Selecione suas opções novamente")
-                dl(1.5, 0.5)
+            case _: 
+                gf.Opcao_Invalida(self) #indica opção inválida
                 self.inicio(False)
