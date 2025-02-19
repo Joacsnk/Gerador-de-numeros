@@ -19,11 +19,16 @@ class Gerar_Numero():
     
     def Processar_Escolha(self, opcao): #processa sua escolha
         match opcao:
+            case "1":
+                gf.delay(0, 0.5)
+                from gerador_cpf import gerador_CPF
+                gerador_CPF = gerador_CPF()
+                gerador_CPF.inicio(True)
             case "2": #retorna para o inicio principal
                 from home import home 
                 gf.delay(0, 0.5)
                 hm = home()
                 hm.inicio(False)
             case _: 
-                gf.Opcao_Invalida(self) #indica opção inválida
+                gf.Opcao_Invalida() #indica opção inválida
                 self.inicio(False)
