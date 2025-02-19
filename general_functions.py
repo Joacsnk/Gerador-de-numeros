@@ -11,3 +11,22 @@ def Opcao_Invalida(self): #mensagem de opção inválida
     delay(0, 0.5)
     print("A opção está invalida. Selecione suas opções novamente")
     delay(1.5, 0.5)
+    
+def carregamento(mensagem):
+    sy("cls")
+    sl(1)
+    print(mensagem)
+    sl(0.5)
+    print(".")
+    sl(0.5)
+    print(".")
+    sl(0.5)
+    print(".")
+    sl(0.5)
+    print(".")
+    sl(0.5)
+    print(".")
+    
+def gerar_Numeros_Aleatorios(contador1, contador2):
+        from random import randint as ra
+        return ra(contador1, contador2)
