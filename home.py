@@ -39,7 +39,7 @@ class home(): #classe principal
                 gf.delay(1.5, 1)
                 exit()
             case _: #repetindo o inicio sem o painel inicial
-                gf.Opcao_Invalida(self)
+                gf.Opcao_Invalida()
                 self.inicio(False)
     
 if __name__ == "__main__": #confirmação para o código rodar inicialmente nesse arquivo
