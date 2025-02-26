@@ -19,6 +19,11 @@ class Validar_Numero():
     
     def Processar_Escolha(self, opcao): #processando sua escolha
         match opcao:
+            case "1":
+                from validar_cpf import Validar_CPF
+                gf.delay(0, 0.5)
+                Validar_CPF = Validar_CPF()
+                Validar_CPF.inicio(True)
             case "2": #leva novamente para o inicio principal
                 from home import home 
                 gf.delay(0, 0.5)
