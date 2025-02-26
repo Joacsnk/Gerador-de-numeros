@@ -26,6 +26,17 @@ def carregamento(mensagem): #carrega mensagens de números completos
     print(".")
     sl(0.5)
     print(".")
+
+def modulo_11(contador1, ):
+    contador_Nativo, soma = 0
+    while contador_Nativo < contador1:
+        soma += self.CPF[contador1] * contador3
+        contador3 -= 1
+        contador1 += 1
+    if soma % 11 == 0 or soma % 11 == 1:
+        return 0
+    else:
+        return 11 - (soma % 11)
     
 def gerar_Numeros_Aleatorios(contador1, contador2): #gerador de números aleatórios
         from random import randint as ra
