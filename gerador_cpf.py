@@ -15,18 +15,8 @@ class gerador_CPF():
     def gerar_Cpf(self): #gera o CPF
         for i in range(0, 9): #pega 9 números aleatórios
             self.CPF.append(gf.gerar_Numeros_Aleatorios(0, 9))
-        self.CPF.append(self.gerar_validador(0, 9, 10, 0)) #faz o 10º número
-        self.CPF.append(self.gerar_validador(0, 10, 11, 0))#faz o 11º número        
-    
-    def gerar_validador(self, contador1, contador2, contador3, soma): #faz a validação: (n1 * y) + (n2 * y-1) + (n3 * y-2) +...+ (n9 * y-8) = x
-        while contador1 < contador2:
-            soma += self.CPF[contador1] * contador3
-            contador3 -= 1
-            contador1 += 1
-        if soma % 11 == 0 or soma % 11 == 1:
-            return 0
-        else:
-            return 11 - (soma % 11)
+        self.CPF.append(gf.modulo_11(9, 10, self.CPF)) #faz o 10º número
+        self.CPF.append(gf.modulo_11(10, 11, self.CPF))#faz o 11º número        
         
     def mostrar_CPF(self): #mostra o CPF em números
         gf.delay(0.5, 0.5)
