@@ -47,6 +47,3 @@ class Validar_CPF():
             case _: #volta para a tela de escolha
                 gf.Opcao_Invalida(1)
                 self.inicio(False)
-                
-Validar_CPf = Validar_CPF()
-Validar_CPf.inicio(True)
