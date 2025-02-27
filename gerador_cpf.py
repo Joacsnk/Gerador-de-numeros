@@ -1,18 +1,18 @@
 #gerador de CPF
-import general_functions as gf #dfs gerais
-class gerador_CPF(): 
+import general_functions as gf 
+class Gerador_CPF(): 
     
-    def inicio(self, gerar_Novamente): #def principal / gera ou não outro CPF
-        if gerar_Novamente:
-            self.CPF = []
-            gf.carregamento("Gerando CPF...") #carregar mensagem de produção
-            self.gerar_Cpf()
+    def inicio(self, gerar_Novamente): #def principal
+        if gerar_Novamente: #gera ou não outro CPF
+            self.CPF = [] #define a var como null
+            gf.carregamento("\33[33mGerando CPF...") #carregar mensagem de produção
+            self.gerar_CPF() #gerar CPF
             gf.delay(0, 0.5)
-            print("CPF gerado com sucesso!!!")
-        self.mostrar_CPF()
-        self.processar_Opcao(self.carregar_Opcao())
+            print("\33[32mCPF gerado com sucesso!!!\33[33m")
+        self.mostrar_CPF() #mostrar o CPF
+        self.processar_Opcao(gf.painel_Escolha("\n\33[33mO que deseja fazer agora?", "\n\nGERAR NOVO CPF [1]   VOLTAR [2]\n\n")) #opção
         
-    def gerar_Cpf(self): #gera o CPF
+    def gerar_CPF(self): #gera o CPF
         for i in range(0, 9): #pega 9 números aleatórios
             self.CPF.append(gf.gerar_Numeros_Aleatorios(0, 9))
         self.CPF.append(gf.modulo_11(9, 10, self.CPF)) #faz o 10º número
@@ -21,13 +21,8 @@ class gerador_CPF():
     def mostrar_CPF(self): #mostra o CPF em números
         gf.delay(0.5, 0.5)
         self.CPF = "".join(map(str, self.CPF))
-        print(f"Aqui está o seu CPF: {self.CPF[:3]}.{self.CPF[3:6]}.{self.CPF[6:9]}-{self.CPF[9:]}")
-        
-    def carregar_Opcao(self): #carrega a opção
-        print("\nO que deseja fazer agora?\n")
-        print("GERAR NOVO CPF [1]\nVOLTAR [2]\n\n")
-        return str(input("Escolha uma opção: "))
-        
+        print(f"\33[33mAqui está o seu CPF: \33[32m{self.CPF[:3]}.{self.CPF[3:6]}.{self.CPF[6:9]}-{self.CPF[9:]}\33[33m")       
+    
     def processar_Opcao(self, opcao): #processa a opção
         match opcao:
             case "1": #cria outro CPF
@@ -38,6 +33,6 @@ class gerador_CPF():
                 Gerar_Numero = Gerar_Numero()
                 Gerar_Numero.inicio(False)
             case _: #volta para a tela de escolha
-                gf.Opcao_Invalida()
+                gf.Opcao_Invalida(1)
                 self.inicio(False)
         

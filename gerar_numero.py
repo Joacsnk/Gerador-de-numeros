@@ -1,34 +1,24 @@
 #sessão para geradores de números
-import general_functions as gf #defs gerais
+import general_functions as gf 
 class Gerar_Numero():
 
-    def inicio(self, exibir_inicio): #exibe painel de inicio ou não
+    def inicio(self, exibir_inicio):
         if exibir_inicio:
-            self.Painel_Inicializacao()
-        self.Processar_Escolha(self.Painel_Escolha())
-    
-    def Painel_Inicializacao(self): #exibe painel
-        gf.delay(0, 0.5)
-        print("Abrindo geradores...")
-        gf.delay(1, 0.5)
-    
-    def Painel_Escolha(self): #exibe interface de escolha
-        print("- - - - - GERADOR DE NÚMEROS - - - - -\n\n")
-        print("GERAR CPF [1]\nVOLTAR [2]\n\n")
-        return str(input("Escolha uma opção: "))
+            gf.apresentacao_Inicio(0, 0.5, "Abrindo geradores...", 1, 0.5)
+        self.Processar_Escolha(gf.painel_Escolha("\33[33m━━━━━ ━ GERADOR ━ ━━━━━\n\n", "GERAR CPF [1]   VOLTAR [2]\n\n"))
     
     def Processar_Escolha(self, opcao): #processa sua escolha
         match opcao:
-            case "1":
+            case "1": #vai para o gerador de CPF
                 gf.delay(0, 0.5)
-                from gerador_cpf import gerador_CPF
-                gerador_CPF = gerador_CPF()
-                gerador_CPF.inicio(True)
-            case "2": #retorna para o inicio principal
+                from gerador_cpf import Gerador_CPF
+                Gerador_CPF = Gerador_CPF()
+                Gerador_CPF.inicio(True)
+            case "2": #retorna para o menu anterior
                 from home import home 
                 gf.delay(0, 0.5)
-                hm = home()
-                hm.inicio(False)
-            case _: 
-                gf.Opcao_Invalida() #indica opção inválida
+                home = home()
+                home.inicio(False)
+            case _: #opção errada
+                gf.Opcao_Invalida(1)
                 self.inicio(False)
