@@ -1,5 +1,6 @@
 #gerador de CPF
 import general_functions as gf 
+from pyperclip import copy as cp
 class Gerador_CPF(): 
     
     def inicio(self, gerar_Novamente): #def principal
@@ -10,7 +11,7 @@ class Gerador_CPF():
             gf.delay(0, 0.5)
             print("\33[32mCPF gerado com sucesso!!!\33[33m")
         self.mostrar_CPF() #mostrar o CPF
-        self.processar_Opcao(gf.painel_Escolha("\n\33[33mO que deseja fazer agora?", "\n\nGERAR NOVO CPF [1]   VOLTAR [2]\n\n")) #opção
+        self.processar_Opcao(gf.painel_Escolha("\n\33[33mO que deseja fazer agora?", "\n\nGERAR NOVO CPF [1]   COPIAR [2]   VOLTAR [3]\n\n")) #opção
         
     def gerar_CPF(self): #gera o CPF
         for i in range(0, 9): #pega 9 números aleatórios
@@ -27,7 +28,12 @@ class Gerador_CPF():
         match opcao:
             case "1": #cria outro CPF
                 self.inicio(True)
-            case "2": #volta para a tela de geração
+            case "2":
+                cp(self.CPF)
+                gf.delay(0, 0.5)
+                print("\33[32mCPF copiado com sucesso!!!\33[33m")
+                self.inicio(False)
+            case "3": #volta para a tela de geração
                 from gerar_numero import Gerar_Numero
                 gf.delay(0, 0.5)
                 Gerar_Numero = Gerar_Numero()
